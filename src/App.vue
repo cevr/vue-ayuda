@@ -1,12 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <SideBar :routes="routes" />
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator';
+
+import { SideBar } from './components';
+
+@Component({
+  components: { SideBar },
+})
+export default class App extends Vue {
+  private routes = [{ path: '/', content: 'Home', icon: '' }, { path: '/about', content: 'About', icon: '' }];
+}
+</script>
+
 
 <style lang="less">
 #app {
@@ -17,7 +30,6 @@
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
   a {
     font-weight: bold;
     color: #2c3e50;

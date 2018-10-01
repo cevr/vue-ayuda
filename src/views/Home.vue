@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div id="app">
+    <SearchCriteria />
+    <Search />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { SearchCriteria, Search } from '../components';
 
 @Component({
   components: {
-    HelloWorld,
+    SearchCriteria,
+    Search,
   },
 })
 export default class Home extends Vue {}
 </script>
+
+<style lang="less">
+@import '../assets/less/variables.less';
+@import '../assets/less/base.less';
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  display: flex;
+  height: 100%;
+}
+</style>
